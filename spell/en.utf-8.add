@@ -1,0 +1,14 @@
+#ormatter/!
+#ormatter/!
+formatter/!
+formatter
+nvim
+LazyVim
+filename
+json
+dprint
+ctx
+fs
+args
+formatters
+prepend
