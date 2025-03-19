@@ -15,7 +15,7 @@ local M = {
   ft = { "markdown", "norg", "rmd", "org" },
   config = function(_, opts)
     require("render-markdown").setup(opts)
-    LazyVim.toggle.map("<leader>um", {
+    Snacks.toggle("<leader>um", {
       name = "Render Markdown",
       get = function()
         return require("render-markdown.state").enabled

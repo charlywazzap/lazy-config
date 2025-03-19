@@ -16,5 +16,3 @@ local M = {
 --
 --   copilot.setup()
 -- end
-
-return M

@@ -2,7 +2,7 @@ local M = {
   "akinsho/toggleterm.nvim",
   -- commit = "19aad0f41f47affbba1274f05e3c067e6d718e1e",
   event = "VeryLazy",
-  version = "2.7.1",
+  --version = "2.7.1",
 }
 
 function M.config()

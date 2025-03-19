@@ -8,7 +8,11 @@ local keymap = vim.keymap.set
 local opts = { silent = true }
 
 -- Close buffers
-keymap("n", "<S-q>", "<cmd>:bd<CR>", { silent = true, desc = "Close Current buffer" })
+-- keymap("n", "<S-q>", "<cmd>:bd<CR>", { silent = true, desc = "Close Current buffer" })
+
+keymap("n", "<S-q>", function()
+  Snacks.bufdelete()
+end, { silent = true, desc = "Close Current buffer" })
 -- Save buffers
 keymap("n", "<leader>Bs", "<cmd>:w!<CR>", { silent = true, desc = "Save Current buffer" })
 keymap("n", "<leader>WW", "<cmd>:w!<CR>", { silent = true, desc = "Save Current buffer" })
