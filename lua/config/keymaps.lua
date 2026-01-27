@@ -21,3 +21,14 @@ keymap("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 keymap("n", "<leader>cfp", "<cmd>let @+ = expand('%')<cr>", { desc = "Copy Full file Path" })
 keymap("n", "<leader>crp", "<cmd>let @+ = expand('%:.')<cr>", { desc = "Corby Relative file Path" })
+
+-- Move to window using the <ctrl> hjkl keys
+
+-- Resize window using <ctrl> arrow keys
+keymap("n", "<C wp>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+keymap("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+keymap("n", "<C-Left>", "<Cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
+keymap("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
+keymap("n", "<leader>tt", function()
+  require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" })
+end, { desc = "Debug File (neotest DAP)" })

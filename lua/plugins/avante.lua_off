@@ -1,0 +1,91 @@
+return {
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "stevearc/dressing.nvim",
+      "ibhagwan/fzf-lua",
+    },
+    opts = {
+      -- Default configuration
+      hints = { enabled = false },
+
+      ---@alias AvanteProvider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
+      provider = "copilot", -- Recommend using Claude
+      auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+      -- claude = {
+      --   endpoint = "https://api.anthropic.com",
+      --   model = "claude-3-5-sonnet-20241022",
+      --   temperature = 0,
+      --   max_tokens = 4096,
+      -- },
+
+      -- File selector configuration
+      --- @alias FileSelectorProvider "native" | "fzf" | "mini.pick" | "snacks" | "telescope" | string
+      file_selector = {
+        provider = "snacks", -- Avoid native provider issues
+        provider_opts = {},
+      },
+    },
+    build = LazyVim.is_win() and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" or "make",
+  },
+  {
+    "saghen/blink.cmp",
+    lazy = true,
+    dependencies = { "saghen/blink.compat" },
+    opts = {
+      sources = {
+        default = { "avante_commands", "avante_mentions", "avante_files" },
+        behaviour = {
+          auto_focus_sidebar = true,
+          auto_suggestions = false, -- Experimental stage
+          auto_suggestions_respect_ignore = false,
+          auto_set_highlight_group = true,
+          auto_set_keymaps = true,
+          auto_apply_diff_after_generation = false,
+          jump_result_buffer_on_finish = false,
+          support_paste_from_clipboard = false,
+          minimize_diff = true,
+          enable_token_counting = true,
+          use_cwd_as_project_root = false,
+          auto_focus_on_diff_view = false,
+        },
+        compat = {
+          "avante_commands",
+          "avante_mentions",
+          "avante_files",
+        },
+        -- LSP score_offset is typically 60
+        providers = {
+          avante_commands = {
+            name = "avante_commands",
+            module = "blink.compat.source",
+            score_offset = 90,
+            opts = {},
+          },
+          avante_files = {
+            name = "avante_files",
+            module = "blink.compat.source",
+            score_offset = 100,
+            opts = {},
+          },
+          avante_mentions = {
+            name = "avante_mentions",
+            module = "blink.compat.source",
+            score_offset = 1000,
+            opts = {},
+          },
+        },
+      },
+    },
+  },
+  {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = {
+      spec = {
+        { "<leader>a", group = "ai" },
+      },
+    },
+  },
+}

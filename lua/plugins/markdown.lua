@@ -32,4 +32,22 @@ local M = {
   end,
 }
 
-return M
+local N = {
+  "MeanderingProgrammer/render-markdown.nvim",
+  -- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+  dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+  ---@module 'render-markdown'
+  ---@type render.md.UserConfig
+  ft = function(_, ft)
+    vim.list_extend(ft, { "Avante" })
+  end,
+
+  opts = function(_, opts)
+    opts.file_types = vim.list_extend(opts.file_types or {}, { "Avante" })
+    opts.completions = { blink = { enabled = true } }
+    opts.render_modes = { "n", "c", "t" }
+  end,
+}
+
+return N

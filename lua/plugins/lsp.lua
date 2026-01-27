@@ -12,41 +12,50 @@ return {
 
     user.opts = {
       servers = {
-        ["pylsp"] = {
-          settings = {
-            pylsp = {
-              -- configurationSources = {},
-              plugins = {
-                -- ruff = {
-                --   enabled = true,
-                --   lineLength = 88, -- Line length to pass to ruff checking and formatting
-                -- },
-
-                mccabe = { enabled = false },
-                flake8 = { enabled = false },
-
-                -- formatter options
-                black = { enabled = false },
-                autopep8 = { enabled = false },
-                yapf = { enabled = false },
-                -- linter options
-                pylint = { enabled = true, executable = "ruff" },
-                pyflakes = { enabled = false },
-                pycodestyle = { enabled = false },
-                -- type checker
-                pylsp_mypy = { enabled = false },
-                -- auto-completion options
-                jedi_completion = { enabled = true, fuzzy = true, include_params = true },
-                -- import sorting
-                pyls_isort = { enabled = false, executable = "ruff" },
-              },
-            },
-          },
-
-          flags = {
-            debounce_text_changes = 200,
-          },
-        },
+        gdscript = {},
+        -- godot_lsp = {
+        --   cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
+        --   filetypes = { "gd", "gdscript", "gdshader", "gdscript3" },
+        --   root_dir = function(fname)
+        --     local util = require("lspconfig.util")
+        --     return util.root_pattern("project.godot", ".git")(fname)
+        --   end,
+        -- },
+        -- ["pylsp"] = {
+        --   settings = {
+        --     pylsp = {
+        --       -- configurationSources = {},
+        --       plugins = {
+        --         -- ruff = {
+        --         --   enabled = true,
+        --         --   lineLength = 88, -- Line length to pass to ruff checking and formatting
+        --         -- },
+        --
+        --         mccabe = { enabled = false },
+        --         flake8 = { enabled = false },
+        --
+        --         -- formatter options
+        --         black = { enabled = false },
+        --         autopep8 = { enabled = false },
+        --         yapf = { enabled = false },
+        --         -- linter options
+        --         pylint = { enabled = true, executable = "ruff" },
+        --         pyflakes = { enabled = false },
+        --         pycodestyle = { enabled = false },
+        --         -- type checker
+        --         pylsp_mypy = { enabled = false },
+        --         -- auto-completion options
+        --         jedi_completion = { enabled = true, fuzzy = true, include_params = true },
+        --         -- import sorting
+        --         pyls_isort = { enabled = false, executable = "ruff" },
+        --       },
+        --     },
+        --   },
+        --
+        --   flags = {
+        --     debounce_text_changes = 200,
+        --   },
+        -- },
         -- pyright lsp opts
         -- ["pyright"] = {
         --
